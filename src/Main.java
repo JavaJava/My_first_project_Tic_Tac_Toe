@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner;  //this comment just for check synchronize
 
 public class Main {
 
@@ -91,7 +91,7 @@ public class Main {
                         System.out.println("Game over");
                         flag = 2;
                         break;
-                     }
+                    }
                 }
                 else flag = 1;
             }
