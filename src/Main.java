@@ -1,4 +1,4 @@
-import java.util.Scanner;  //this comment just for check synchronize
+import java.util.Scanner;
 
 public class Main {
 
