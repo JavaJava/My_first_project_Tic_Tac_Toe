@@ -7,11 +7,10 @@ import java.util.Scanner;
 public class Player {
 
     private String playerName = "N/A";
-    private final char playerSymbol;
+    private char playerSymbol;
 
-    public String getPlayerName() {
-        return playerName;
-    }
+
+    Player(){}
 
     Player(char playerSymbol){
         this.playerSymbol = playerSymbol;
@@ -22,7 +21,20 @@ public class Player {
         this.playerName = playerName;
     }
 
-    public  char getActualPlayerSymbol() {
+
+    public void setPlayerName() {
+        Scanner sc = new Scanner(System.in);
+        this.playerName = sc.nextLine();
+    }
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    public void setPlayerSymbol(char playerSymbol) {
+        this.playerSymbol = playerSymbol;
+    }
+
+    public  char getPlayerSymbol() {
         return playerSymbol;
     }
 
@@ -38,8 +50,6 @@ public class Player {
             System.out.println("Error!!!. Press a number!");
             return -1;
         }
-
-
     }
 
     public int selectColumn(){

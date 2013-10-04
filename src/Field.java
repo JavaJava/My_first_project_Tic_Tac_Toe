@@ -6,7 +6,11 @@ public class Field{
     private static int DEFAULT_FIELD_SIZE = 3;
 
     public Field(){
-        this(DEFAULT_FIELD_SIZE);
+        this.fieldSize = DEFAULT_FIELD_SIZE;
+    }
+
+    public int getFieldSize() {
+        return fieldSize;
     }
 
     public Field(int size){
@@ -17,6 +21,10 @@ public class Field{
                 field[i][j] = DEFAULT_CELL_VALUE;
             }
         }
+    }
+
+    public void clearFieldCell(int[] fieldCellToClear){
+        field[fieldCellToClear[0]][fieldCellToClear[1]] = DEFAULT_CELL_VALUE;
     }
 
     public boolean setFieldCell (int x, int y, char ch){

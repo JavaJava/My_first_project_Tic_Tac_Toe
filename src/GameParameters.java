@@ -11,7 +11,7 @@ public  class GameParameters {
 
     public static int gameModSelect(){
         String buf;
-        System.out.println(" Select game mode: \n \" " + PvP + " \" - player vs player \n \"" + PvE + "\" - player vs computer ");
+        System.out.println(" Select game mode: \n \" " + PvP + " \" - player vs player \n \" " + PvE + " \" - player vs computer ");
         Scanner sc = new Scanner(System.in);
         int i = 0;
             do {
@@ -71,6 +71,7 @@ public  class GameParameters {
             symb = 'O';
         }
         else symb = 'X';
+
         return (symb);
     }
 }
