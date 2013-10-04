@@ -66,8 +66,12 @@ public class Field{
     }
 
     public boolean checkCoordinate(int number){
-        if ((number < 0)||(number >= fieldSize))  {
-            System.out.println(number + "is out of range. Enter number between 0 and " + (fieldSize-1));
+        if (number == -1) {
+            System.out.println("Try enter number between 0 and " + (fieldSize-1));
+            return (false);
+        }
+        if ((number < -1)||(number >= fieldSize))  {
+            System.out.println(number + " is out of range. Enter number between 0 and " + (fieldSize-1));
             return (false);
         }
         return (true);
