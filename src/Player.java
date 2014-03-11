@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,23 +6,17 @@ public class Player {
     private String playerName = "N/A";
     private char playerSymbol;
 
-
     Player(){}
 
     Player(char playerSymbol){
         this.playerSymbol = playerSymbol;
     }
 
-    Player (char playerSymbol, String playerName){
-        this.playerSymbol = playerSymbol;
-        this.playerName = playerName;
-    }
-
-
     public void setPlayerName() {
         Scanner sc = new Scanner(System.in);
         this.playerName = sc.nextLine();
     }
+
     public String getPlayerName() {
         return playerName;
     }

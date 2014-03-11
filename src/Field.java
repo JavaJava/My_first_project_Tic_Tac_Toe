@@ -9,10 +9,6 @@ public class Field{
         this.fieldSize = DEFAULT_FIELD_SIZE;
     }
 
-    public int getFieldSize() {
-        return fieldSize;
-    }
-
     public Field(int size){
         fieldSize = size;
         field = new char [fieldSize][fieldSize];
@@ -21,10 +17,6 @@ public class Field{
                 field[i][j] = DEFAULT_CELL_VALUE;
             }
         }
-    }
-
-    public void clearFieldCell(int[] fieldCellToClear){
-        field[fieldCellToClear[0]][fieldCellToClear[1]] = DEFAULT_CELL_VALUE;
     }
 
     public boolean setFieldCell (int x, int y, char ch){
@@ -40,14 +32,6 @@ public class Field{
 
     public char getFieldCell (int x, int y){
         return (field[x][y]);
-    }
-
-    public char[][] getField() {
-        return field;
-    }
-
-    public char getDEFAULT_CELL_VALUE() {
-        return DEFAULT_CELL_VALUE;
     }
 
     public void showCell(int x, int y){
@@ -96,32 +80,7 @@ public class Field{
         return (true);
     }
 
-    public int filledCellNumber(){
-        int count = 0;
-        for(int i = 0; i < fieldSize; i++){
-            for (int j = 0; j < fieldSize; j++){
-                if (field[i][j] != DEFAULT_CELL_VALUE){
-                    count++;
-                }
-            }
-        }
-        return (count);
-    }
-
-    public boolean allCellEmpty(){
-        for(int i = 0; i < fieldSize; i++){
-            for (int j = 0; j < fieldSize; j++){
-                if (field[i][j] == DEFAULT_CELL_VALUE){
-                    return (true);
-                }
-            }
-        }
-        return (false);
-    }
-
     public boolean findWinRow(String player){
-         //  System.out.println("Try to find win row");
-        boolean stop = false;
         for(int rowNumb = 0; rowNumb < fieldSize; rowNumb++){
             for (int i = 0; i < (fieldSize - 1); i++){
                 if ((field[rowNumb][i] == DEFAULT_CELL_VALUE) || (field[rowNumb][i] != field[rowNumb][(i + 1)])) {
@@ -130,25 +89,21 @@ public class Field{
                 if  ((field[rowNumb][i] != DEFAULT_CELL_VALUE) && (field[rowNumb][i] == field[rowNumb][(i + 1)])){
 
                     if ((i+2) != fieldSize){
-                        continue;
+                        //NOP
                     }
                     else {
                         System.out.println(player + " win");
-                        stop = true;
+
                         return (true);
                     }
                 }
             }
-            if ((!stop)&&(rowNumb == (fieldSize - 1))){
-            //    System.out.println("Win row was not found");
-            }
+
         }
         return (false);
     }
 
     public boolean findWinCol(String player){
-       // System.out.println("Try to find win column");
-        boolean stop = false;
         for(int colNumb = 0; colNumb < fieldSize; colNumb++){
             for (int i = 0; i < (fieldSize - 1); i++){
                 if ((field[i][colNumb] == DEFAULT_CELL_VALUE) || (field[i][colNumb] != field[(i + 1)][colNumb])) {
@@ -156,35 +111,29 @@ public class Field{
                 }
                 if  ((field[i][colNumb] != DEFAULT_CELL_VALUE) && (field[i][colNumb] == field[(i + 1)][colNumb])){
                     if ((i+2) != fieldSize){
-                        continue;
+                        //NOP
                     }
                     else {
                         System.out.println(player + " win");
-                        stop = true;
                         return (true);
                     }
                 }
             }
-            if ((!stop)&&(colNumb == (fieldSize - 1))){
-              //  System.out.println("Win column was not found");
-            }
+
         }
         return (false);
     }
 
     public boolean findWinMainDiagonal(String player){
-       // System.out.println("Try to find win \\ diagonal");
 
         int j = 0;
         for(int i = 0; i < fieldSize; i++){
             if ((field[i][j] == DEFAULT_CELL_VALUE) || (field[i][j] != field[(i + 1)][(j + 1)])) {
-              //  System.out.println("Win main \\ diagonal was not found");
                 break;
             }
             if ((field[i][j] != DEFAULT_CELL_VALUE) && (field[i][j] == field[(i + 1)][(j + 1)])) {
                 if ((j+2) != fieldSize){
                     j++;
-                    continue;
                 }
                 else {
                     System.out.println(player + " win");
@@ -196,18 +145,15 @@ public class Field{
     }
 
     public boolean findWinBackDiagonal(String player){
-        //System.out.println("Try to find win / diagonal");
 
         int j = (fieldSize - 1);
         for(int i = 0; i < fieldSize; i++){
             if ((field[i][j] == DEFAULT_CELL_VALUE) || (field[i][j] != field[(i + 1)][(j - 1)])) {
-              //  System.out.println("Win / diagonal was not found");
                 break;
             }
             if ((field[i][j] != DEFAULT_CELL_VALUE) && (field[i][j] == field[(i + 1)][(j - 1)])) {
                 if ((j-1) != 0){
                     j--;
-                    continue;
                 }
                 else {
                     System.out.println(player + " win");
